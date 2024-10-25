@@ -1,0 +1,19 @@
+{
+  "name": "csichurchthittuvilai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {   
+    "start": "node server.js",
+    "frontend": "cd ../csichurchthittuvilai-frontend && ng serve",
+    "dev": "concurrently \"npm run start\" \"npm run frontend\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "cd ../csichurchthittuvilai-frontend && git add . && git commit -m \"Update frontend\" && git push origin main && cd ../csichurchthittuvilai-backend && git add . && git commit -m \"Update backend\" && git push origin main"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
