@@ -9,6 +9,9 @@ const fs = require('fs');
 const Media = require('./models/media');
 const memberRoutes = require('./routes/memberRoutes');
 const userRoutes = require('./routes/userRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
+const offeringRoutes = require('./routes/offeringRoutes'); // Add offering routes
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -48,6 +51,9 @@ const upload = multer({ storage }).fields([{ name: 'image', maxCount: 1 }, { nam
 // Routes
 app.use('/api/members', memberRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api', categoryRoutes);
+app.use('/api', offeringRoutes); // Add offering routes
+
 
 // Upload Media Route
 app.post('/api/media/upload', (req, res) => {

@@ -9,7 +9,19 @@ exports.getMembers = async (req, res) => {
     res.status(500).send(err);
   }
 };
+// Get members by Family ID
+exports.getMembersByFamilyId = async (req, res) => {
+  console.log(req.body,"dlkkdk")
+  const { familyId } = req.params;
 
+  try {
+    const members = await Member.find({ familyId });
+    res.status(200).json(members);
+  } catch (error) {
+    console.error('Error fetching members:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
 // Create a new member
 exports.createMember = async (req, res) => {
   const member = new Member(req.body);
